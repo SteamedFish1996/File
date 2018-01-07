@@ -1,0 +1,37 @@
+package file;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+/**
+ * 
+ * @author Zhao Zhengyu
+ * @version 2018年1月7日 下午8:58:13
+ */
+public class WriteToFile {
+	private File file;
+	public void WriteToFileByByte(String pathAndName,String content) throws IOException{
+		file=new File(pathAndName);
+		if(!file.exists()) {
+			file.createNewFile();
+		}
+		OutputStream outputStream=new FileOutputStream(file);
+		byte [] bs=content.getBytes();
+		outputStream.write(bs);
+		outputStream.close();
+	}
+	public void AddToFileByByte(String pathAndName,String content) throws IOException{
+		file=new File(pathAndName);
+		if(!file.exists()) {
+			file.createNewFile();
+		}
+		OutputStream outputStream=new FileOutputStream(file,true);
+		byte [] bs=content.getBytes();
+		outputStream.write(bs);
+		outputStream.close();
+	}
+}

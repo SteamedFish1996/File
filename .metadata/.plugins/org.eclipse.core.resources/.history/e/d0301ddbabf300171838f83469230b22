@@ -1,0 +1,21 @@
+package file;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class ReadFile {
+	private File file;
+	public  String readFromFileByByte(String path) throws IOException{
+		file=new File(path);
+		if(!file.exists()) {
+			file.createNewFile();
+		}
+		InputStream inputStream=new FileInputStream(file);
+		byte [] bs=new byte[(int) file.length()];
+		inputStream.read(bs);
+		inputStream.close();
+		return new String(bs);
+	}
+}

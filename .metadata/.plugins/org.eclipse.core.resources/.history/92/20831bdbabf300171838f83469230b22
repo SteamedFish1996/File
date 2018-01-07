@@ -1,0 +1,25 @@
+package fakeData;
+
+import java.io.IOException;
+
+import file.ReadFile;
+
+/**
+ * 
+ * @author Zhao Zhengyu
+ * @version 2018年1月7日 下午8:36:34
+ */
+public class FakeData {
+
+	public static void main(String[] args) {
+		ReadFile rfile=new ReadFile ();
+		try {
+			rfile.readFromFileByByte(new String("profession.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
